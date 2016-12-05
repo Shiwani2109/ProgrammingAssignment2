@@ -8,7 +8,7 @@
 ##(e.g. If we write 'x$getinverse()' on consol it will display inverse of matrix 'x'
 ## So this function stores a matrix and caches its inverse.
 
-makeCacheMatrix <- function(x = matrix(1:4,2,2)) {
+makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
     set <- function(y) {
         x <<- y
@@ -35,4 +35,19 @@ cacheSolve <- function(x, ...) {
     x$setinverse(inv)
     inv
 }
+
+## Running the above functions in console
+
+A <- makeCacheMatrix(x=matrix(11:14,2,2))
+cacheSolve(A)  # This will compute the inverse as it doesnt exist in cache
+#      [,1] [,2]
+# [1,]   -7  6.5
+# [2,]    6 -5.5
+
+cacheSolve(A)  # Thsi will retrieve the cached inverse 
+# getting cached data.
+#      [,1] [,2]
+# [1,]   -7  6.5
+# [2,]    6 -5.5
+
 
